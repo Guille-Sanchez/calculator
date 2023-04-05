@@ -1,69 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Nunito+Sans:wght@300&family=Nunito:wght@900&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Theme 1 */
+    /* Backgrounds */
+    --main-bg-1:hsl(222, 26%, 31%);
+    --toggle-keypad-bg-1: hsl(223, 31%, 20%);
+    --screen-bg-1: hsl(224, 36%, 15%);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    /* keys */
+    --key-special-bg-1: hsl(225, 21%, 49%);
+    --key-special-shadow-1: hsl(224, 28%, 35%);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    --toggle-key-bg-1: hsl(6, 63%, 50%);
+    --toggle-key-shadow-1: hsl(6, 70%, 34%);
+
+    --key-bg-1: hsl(30, 25%, 89%);
+    --key-shadow-1: hsl(28, 16%, 65%);
+
+    /* Text */
+    --text-number-1: hsl(221, 14%, 31%);
+    --special-operations-1: hsl(0, 0%, 100%);
+
+    /* Theme 2 */
+    /* Backgrounds */
+    --main-bg-2: hsl(0, 0%, 90%);
+    --toggle-keypad-bg-2: (0, 5%, 81%);
+    --screen-bg-2: hsl(0, 0%, 93%);
+
+    /* keys */
+    --key-special-bg-2: hsl(185, 42%, 37%);
+    --key-special-shadow-2: hsl(185, 58%, 25%);
+
+    --toggle-key-bg-2: hsl(185, 58%, 25%);
+    --toggle-key-shadow-2: hsl(25, 99%, 27%);
+
+    --key-bg-2: hsl(45, 7%, 89%);
+    --key-shadow-2: hsl(35, 11%, 61%);
+
+    /* Text */
+    --text-number-2: hsl(60, 10%, 19%);
+    --special-operations-2: hsl(0, 0%, 100%);
+
+    /* Theme 3 */
+    /* Backgrounds */
+    --main-bg-3: hsl(268, 75%, 9%);
+    --toggle-keypad-bg-3: hsl(268, 71%, 12%);
+    --screen-bg-3: hsl(268, 71%, 12%);
+
+    /* keys */
+    --key-special-bg-3: hsl(281, 89%, 26%);
+    --key-special-shadow-3: hsl(285, 91%, 52%);
+
+    --toggle-key-bg-3: hsl(176, 100%, 44%);
+    --toggle-key-shadow-3: hsl(177, 92%, 70%);
+
+    --key-bg-3: hsl(268, 47%, 21%);
+    --key-shadow-3: hsl(290, 70%, 36%);
+
+    /* Text */
+    --text-number-3: hsl(52, 100%, 62%);
+    --special-operations-2: hsl(198, 20%, 13%);
+    --equal-3: hsl(0, 0%, 100%);
+
+    --font-family: 'League Spartan', sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+html, body, #root {
+  height: 100%;
+  width: 100%;
 }
