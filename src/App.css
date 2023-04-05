@@ -1,0 +1,56 @@
+.App {
+  height: 100%;
+  width: 100%;
+  background-color: var(--main-bg-1);
+  display: grid;
+  place-items: center;
+}
+
+.App h1 {
+  margin: 0;
+}
+
+.App ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.calc-body {
+  display: grid;
+  grid: 5px;
+}
+
+.calc-body-row > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+}
+
+.calc-body-key button {
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+}
+
+.calc-body-row:first-of-type .calc-body-key:last-child > *{
+  background-color: aqua;
+}
+
+.calc-body-row:last-child .calc-body-key:first-child > *{
+  background-color: aqua;
+}
+
+.calc-body-row:last-child .calc-body-key:last-child > *{
+  background-color: red;
+}
+
+.calc-body-row:last-child > ul{
+  background-color: aliceblue;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.calc-body-row:last-child .calc-body-key button {
+  width: 100%;
+}
