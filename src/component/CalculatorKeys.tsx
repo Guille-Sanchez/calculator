@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { calculatorKeys, mathOperations } from '../constants'
+import { calculatorKeys, mathOperations, specialKeys } from '../constants'
 import { calculate } from '../logic/calculate'
 
 interface Props {
@@ -14,6 +14,7 @@ interface HandleProps {
 export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element => {
   const [firstValue, setFirstValue] = useState<string>('')
   const operation = useRef('')
+  const flag = useRef(false)
 
   const handleOnCLick = ({ e }: HandleProps): void => {
     e.preventDefault()
@@ -21,20 +22,26 @@ export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element =>
 
     switch (buttonValue) {
       case '=':
-        console.log(calculate({ firstValue, equation, operation }))
-        setEquation(() => calculate({ firstValue, equation, operation }))
+        const result = calculate({ firstValue, equation, operation })
+        setEquation(() => result)
         setFirstValue(() => '')
+        operation.current = ''
         break
+
       case 'RESET':
         setEquation(() => '')
         setFirstValue(() => '')
         operation.current = ''
         break
+
       case 'DEL':
-        if (equation.length > 0) {
+        if (equation.length > 0 && operation.current === '') {
           const equationArray = equation.split('')
           equationArray.pop()
           setEquation(() => equationArray.join('') ?? '')
+        } else if (operation.current !== '') {
+          operation.current = ''
+          setEquation(() => '')
         } else {
           setEquation(() => '')
         }
@@ -44,14 +51,32 @@ export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element =>
         break
     }
 
-    if (mathOperations.includes(buttonValue) && equation !== '') {
+    if (specialKeys.includes(buttonValue)) {
+      return
+    }
+
+    if (
+      ((operation.current === '' && !mathOperations.includes(buttonValue)) ||
+      ((buttonValue === '-' && equation.split('').length === 0) && firstValue === '')) &&
+      equation !== 'SYNTAX ERROR'
+    ) {
+      setEquation((prev) => prev + buttonValue)
+    } else if (mathOperations.includes(buttonValue) && operation.current === '') {
       setEquation(() => buttonValue)
-      if (operation.current === '') {
+      if (firstValue === '') {
         setFirstValue(() => equation)
       }
       operation.current = buttonValue
-    } else if (buttonValue !== '=') {
-      setEquation((prev) => !mathOperations.includes(prev) ? prev + buttonValue : buttonValue)
+      flag.current = true
+    } else if (equation === 'SYNTAX ERROR') {
+      setEquation(() => buttonValue)
+    } else {
+      if (flag.current) {
+        setEquation(() => buttonValue)
+        flag.current = false
+      } else {
+        setEquation((prev) => prev + buttonValue)
+      }
     }
   }
 

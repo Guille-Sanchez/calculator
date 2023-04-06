@@ -18,13 +18,13 @@
 
 .calc-body {
   display: grid;
-  grid: 5px;
+  gap: 10px;
 }
 
 .calc-body-row > ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 5px;
+  gap: 10px;
 }
 
 .calc-body-key button {

@@ -8,22 +8,26 @@ interface Props {
 
 export const calculate = ({ firstValue, equation, operation }: Props): string => {
   let result = ''
-  switch (operation.current) {
-    case '+':
-      result = math.add(math.bignumber(firstValue), math.bignumber(Number(equation))).toString()
-      break
-    case '-':
-      result = math.subtract(math.bignumber(firstValue), math.bignumber(Number(equation))).toString()
-      break
-    case '*':
-      result = Number(math.multiply(math.bignumber(firstValue), math.bignumber(Number(equation)))).toString()
-      break
-    case '/':
-      result = Number(math.divide(math.bignumber(firstValue), math.bignumber(Number(equation)))).toString()
-      operation.current = ''
-      break
-    default:
-      console.log('An error has ocurred')
+  try {
+    switch (operation.current) {
+      case '+':
+        result = math.add(math.bignumber(firstValue), math.bignumber(Number(equation))).toString()
+        break
+      case '-':
+        result = math.subtract(math.bignumber(firstValue), math.bignumber(Number(equation))).toString()
+        break
+      case '*':
+        result = Number(math.multiply(math.bignumber(firstValue), math.bignumber(Number(equation)))).toString()
+        break
+      case '/':
+        result = Number(math.divide(math.bignumber(firstValue), math.bignumber(Number(equation)))).toString()
+        break
+      default:
+        return ('SYNTAX ERROR')
+    }
+
+    return (result !== 'NaN' ? result : 'SYNTAX ERROR')
+  } catch (error) {
+    return ('SYNTAX ERROR')
   }
-  return (result)
 }

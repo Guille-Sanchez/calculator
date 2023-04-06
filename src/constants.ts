@@ -7,3 +7,4 @@ export const calculatorKeys = [
 ] as const
 
 export const mathOperations = ['+', '-', '*', '/']
+export const specialKeys = ['=', 'RESET', 'DEL']
