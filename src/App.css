@@ -1,36 +1,42 @@
 .App {
-  height: 100%;
-  width: 100%;
   background-color: var(--main-bg-1);
   display: grid;
+  height: 100%;
   place-items: center;
+  width: 100%;
 }
 
 .App h1 {
   margin: 0;
 }
 
-.App ul {
+.App ul, ul li {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .calc-body {
+  background-color: coral;
+  border-radius: 10px;
   display: grid;
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 0 !important;
 }
 
 .calc-body-row > ul {
   display: grid;
+  gap: 15px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
 }
 
 .calc-body-key button {
+  border: transparent;
+  border-radius: 7px;
   box-sizing: border-box;
-  width: 60px;
   height: 60px;
+  width: 60px;
 }
 
 .calc-body-row:first-of-type .calc-body-key:last-child > *{
@@ -47,10 +53,28 @@
 
 .calc-body-row:last-child > ul{
   background-color: aliceblue;
-  width: 100%;
   grid-template-columns: 1fr 1fr;
+  width: 100%;
 }
 
 .calc-body-row:last-child .calc-body-key button {
   width: 100%;
+}
+
+.screen {
+  direction: rtl;
+  height: 60px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 10px;
+
+}
+
+main {
+  background-color: blue;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 10px;
+  display: grid;
+  gap: 30px;
 }

@@ -9,7 +9,7 @@ describe('Calculator', () => {
   it('Should have a title', () => {
     render(<App/>)
 
-    const title = screen.getByText('Calculator')
+    const title = screen.getByText('calc')
     expect(title).toBeDefined()
   })
 

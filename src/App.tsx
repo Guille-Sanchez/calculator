@@ -7,11 +7,32 @@ function App (): JSX.Element {
 
   return (
     <div className="App">
-      <h1>Calculator</h1>
-      <div>
-        <input value={equation} readOnly/>
-        <CalculatorKeys equation={equation} setEquation={setEquation} />
-      </div>
+      <main>
+        <div>
+          <h1>calc</h1>
+          <div>
+            <p>Theme</p>
+            <div>
+              <div>
+                <label htmlFor="theme1">1</label>
+                <input type="checkbox" />
+              </div>
+              <div>
+                <label htmlFor="theme2">2</label>
+                <input type="checkbox" />
+              </div>
+              <div>
+                <label htmlFor="theme3">3</label>
+                <input type="checkbox" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='keys'>
+          <input className='screen' value={equation} readOnly/>
+          <CalculatorKeys equation={equation} setEquation={setEquation} />
+        </div>
+      </main>
     </div>
   )
 }

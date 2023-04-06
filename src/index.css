@@ -63,12 +63,14 @@
     --equal-3: hsl(0, 0%, 100%);
 
     --font-family: 'League Spartan', sans-serif;
-}
+    --font-size: 32px;
+  }
 
 
 * {
   box-sizing: border-box;
   font-family: var(--font-family);
+  font-size: var(--font-size);
 }
 
 html, body, #root {
