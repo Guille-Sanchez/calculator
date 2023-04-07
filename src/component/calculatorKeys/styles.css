@@ -1,0 +1,73 @@
+.calc-body {
+  background-color: var(--toggle-keypad-bg-1);
+  border-radius: 10px;
+  display: grid;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 0 !important;
+}
+
+.calc-body-row > ul {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.calc-body-key button {
+  background-color: var(--key-bg-1);
+  border: transparent;
+  border-radius: 7px;
+  box-sizing: border-box;
+  color: hsl(221, 14%, 31%);
+  height: 60px;
+  box-shadow: 0 5px var(--key-shadow-1);
+  width: 60px;
+}
+
+.calc-body-row:first-of-type .calc-body-key:last-child > * { /* Modifies DEL button*/
+  background-color: var(--key-special-bg-1);
+  box-shadow: 0 5px var(--key-special-shadow-1);
+  color: var(--special-operations-1);
+  font-size: 20px;
+}
+
+.calc-body-row:last-child .calc-body-key:first-child > * { /* Modifies RESET button*/
+  background-color: var(--key-special-bg-1);
+  box-shadow: 0 5px var(--key-special-shadow-1);
+  color: var(--special-operations-1);
+  font-size: 25px;
+}
+
+.calc-body-row:last-child .calc-body-key:last-child > * { /* Modifies equal button */
+  background-color: var(--toggle-key-bg-1);
+  box-shadow: 0 5px var(--toggle-key-shadow-1);
+  color: var(--special-operations-1);
+  font-size: 25px;
+}
+
+.calc-body-row:last-child > ul { /*Modifies las row of two buttons*/
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.calc-body-row:last-child .calc-body-key button {
+  width: 100%;
+}
+
+.screen {
+  background-color: var(--screen-bg-1);
+  border: transparent;
+  border-radius: 10px;
+  color: var(--special-operations-1);
+  direction: rtl;
+  height: 90px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.top-calc {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

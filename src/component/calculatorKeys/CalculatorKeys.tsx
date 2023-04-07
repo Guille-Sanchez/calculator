@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
-import { calculatorKeys, mathOperations, specialKeys } from '../constants'
-import { calculate } from '../logic/calculate'
+import { calculatorKeys, mathOperations, specialKeys } from '../../constants'
+import { calculate } from '../../logic/calculate'
+import './styles.css'
 
 interface Props {
   equation: string

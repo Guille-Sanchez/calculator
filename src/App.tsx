@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { CalculatorKeys } from './component/CalculatorKeys'
+import { CalculatorKeys } from './component/calculatorKeys/CalculatorKeys'
 import { ToggleButton } from './component/toggleButton/ToggleButton'
 
 function App (): JSX.Element {

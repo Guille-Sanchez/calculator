@@ -1,5 +1,6 @@
 .App {
   background-color: var(--main-bg-1);
+  color: var(--special-operations-1);
   display: grid;
   height: 100%;
   place-items: center;
@@ -16,72 +17,11 @@
   padding: 0;
 }
 
-.calc-body {
-  background-color: coral;
-  border-radius: 10px;
-  display: grid;
-  justify-content: center;
-  gap: 15px;
-  padding: 20px 0 !important;
-}
-
-.calc-body-row > ul {
-  display: grid;
-  gap: 15px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.calc-body-key button {
-  border: transparent;
-  border-radius: 7px;
-  box-sizing: border-box;
-  height: 60px;
-  width: 60px;
-}
-
-.calc-body-row:first-of-type .calc-body-key:last-child > *{
-  background-color: aqua;
-}
-
-.calc-body-row:last-child .calc-body-key:first-child > *{
-  background-color: aqua;
-}
-
-.calc-body-row:last-child .calc-body-key:last-child > *{
-  background-color: red;
-}
-
-.calc-body-row:last-child > ul{
-  background-color: aliceblue;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-}
-
-.calc-body-row:last-child .calc-body-key button {
-  width: 100%;
-}
-
-.screen {
-  direction: rtl;
-  height: 60px;
-  margin-bottom: 20px;
-  width: 100%;
-  border-radius: 10px;
-
-}
-
 main {
-  background-color: blue;
+  background-color: var(--main-bg-1);
   border-radius: 10px;
-  padding: 20px;
-  margin: 0 10px;
   display: grid;
   gap: 30px;
-}
-
-.top-calc {
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-  justify-content: space-between;
+  margin: 0 10px;
+  padding: 20px;
 }
