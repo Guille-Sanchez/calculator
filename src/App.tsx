@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { CalculatorKeys } from './component/CalculatorKeys'
+import { ToggleButton } from './component/toggleButton/ToggleButton'
 
 function App (): JSX.Element {
   const [equation, setEquation] = useState<string>('')
@@ -8,25 +9,9 @@ function App (): JSX.Element {
   return (
     <div className="App">
       <main>
-        <div>
+        <div className='top-calc'>
           <h1>calc</h1>
-          <div>
-            <p>Theme</p>
-            <div>
-              <div>
-                <label htmlFor="theme1">1</label>
-                <input type="checkbox" />
-              </div>
-              <div>
-                <label htmlFor="theme2">2</label>
-                <input type="checkbox" />
-              </div>
-              <div>
-                <label htmlFor="theme3">3</label>
-                <input type="checkbox" />
-              </div>
-            </div>
-          </div>
+          <ToggleButton/>
         </div>
         <div className='keys'>
           <input className='screen' value={equation} readOnly/>

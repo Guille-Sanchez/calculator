@@ -78,3 +78,10 @@ main {
   display: grid;
   gap: 30px;
 }
+
+.top-calc {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  justify-content: space-between;
+}
