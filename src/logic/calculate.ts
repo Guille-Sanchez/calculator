@@ -26,7 +26,7 @@ export const calculate = ({ firstValue, equation, operation }: Props): string =>
         return ('SYNTAX ERROR')
     }
 
-    return (result !== 'NaN' ? result : 'SYNTAX ERROR')
+    return (result !== 'NaN' ? result.replace('.', ',') : 'SYNTAX ERROR')
   } catch (error) {
     return ('SYNTAX ERROR')
   }

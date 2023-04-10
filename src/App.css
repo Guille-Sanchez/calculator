@@ -18,10 +18,23 @@
 }
 
 main {
-  background-color: var(--main-bg-1);
+  background-color: hsl(221, 26%, 26%);
   border-radius: 10px;
   display: grid;
   gap: 30px;
   margin: 0 10px;
   padding: 20px;
+}
+
+.screen {
+  background-color: var(--screen-bg-1);
+  border: transparent;
+  border-radius: 10px;
+  color: var(--special-operations-1);
+  direction: rtl;
+  height: 90px;
+  margin-bottom: 20px;
+  overflow: auto;
+  padding-right: 20px;
+  width: 100%;
 }
