@@ -24,14 +24,14 @@
     /* Theme 2 */
     /* Backgrounds */
     --main-bg-2: hsl(0, 0%, 90%);
-    --toggle-keypad-bg-2: (0, 5%, 81%);
+    --toggle-keypad-bg-2: hsl(0, 5%, 81%);
     --screen-bg-2: hsl(0, 0%, 93%);
 
     /* keys */
     --key-special-bg-2: hsl(185, 42%, 37%);
     --key-special-shadow-2: hsl(185, 58%, 25%);
 
-    --toggle-key-bg-2: hsl(185, 58%, 25%);
+    --toggle-key-bg-2: hsl(25, 98%, 40%);
     --toggle-key-shadow-2: hsl(25, 99%, 27%);
 
     --key-bg-2: hsl(45, 7%, 89%);
@@ -59,8 +59,8 @@
 
     /* Text */
     --text-number-3: hsl(52, 100%, 62%);
-    --special-operations-2: hsl(198, 20%, 13%);
-    --equal-3: hsl(0, 0%, 100%);
+    --equal: hsl(198, 20%, 13%);
+    --special-operations-3: hsl(0, 0%, 100%);
 
     --font-family: 'League Spartan', sans-serif;
     --font-size: 32px;

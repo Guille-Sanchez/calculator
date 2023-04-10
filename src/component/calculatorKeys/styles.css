@@ -1,10 +1,21 @@
 .calc-body {
-  background-color: var(--toggle-keypad-bg-1);
   border-radius: 10px;
   display: grid;
   justify-content: center;
   gap: 15px;
   padding: 20px 0 !important;
+}
+
+.calc-body.theme-1 {
+  background-color: var(--toggle-keypad-bg-1);
+}
+
+.calc-body.theme-2 {
+  background-color: var(--toggle-keypad-bg-2);
+}
+
+.calc-body.theme-3 {
+  background-color: var(--toggle-keypad-bg-3);
 }
 
 .calc-body-row > ul {
@@ -14,34 +25,92 @@
 }
 
 .calc-body-key button {
-  background-color: var(--key-bg-1);
   border: transparent;
   border-radius: 7px;
   box-sizing: border-box;
-  color: hsl(221, 14%, 31%);
+  /*color: hsl(221, 14%, 31%);*/
   height: 60px;
-  box-shadow: 0 5px var(--key-shadow-1);
   width: 60px;
 }
 
-.calc-body-row:first-of-type .calc-body-key:last-child > * { /* Modifies DEL button*/
+.calc-body-key.theme-1 button {
+  background-color: var(--key-bg-1);
+  box-shadow: 0 5px var(--key-shadow-1);
+  color: var(--text-number-1);
+}
+
+.calc-body-key.theme-2 button {
+  background-color: var(--key-bg-2);
+  box-shadow: 0 5px var(--key-shadow-2);
+  color: var(--text-number-2);
+}
+
+.calc-body-key.theme-3 button {
+  background-color: var(--key-bg-3);
+  box-shadow: 0 5px var(--key-shadow-3);
+  color: var(--text-number-3);
+}
+
+.calc-body-row.theme-1:first-of-type .calc-body-key:last-child > * { /* Modifies DEL button*/
   background-color: var(--key-special-bg-1);
   box-shadow: 0 5px var(--key-special-shadow-1);
   color: var(--special-operations-1);
   font-size: 20px;
 }
 
-.calc-body-row:last-child .calc-body-key:first-child > * { /* Modifies RESET button*/
+.calc-body-row.theme-2:first-of-type .calc-body-key:last-child > * { /* Modifies DEL button*/
+  background-color: var(--key-special-bg-2);
+  box-shadow: 0 5px var(--key-special-shadow-2);
+  color: var(--special-operations-2);
+  font-size: 20px;
+}
+
+.calc-body-row.theme-3:first-of-type .calc-body-key:last-child > * { /* Modifies DEL button*/
+  background-color: var(--key-special-bg-3);
+  box-shadow: 0 5px var(--key-special-shadow-3);
+  color: var(--special-operations-3);
+  font-size: 20px;
+}
+
+.calc-body-row.theme-1:last-child .calc-body-key:first-child > * { /* Modifies RESET button*/
   background-color: var(--key-special-bg-1);
   box-shadow: 0 5px var(--key-special-shadow-1);
   color: var(--special-operations-1);
   font-size: 25px;
 }
 
-.calc-body-row:last-child .calc-body-key:last-child > * { /* Modifies equal button */
+.calc-body-row.theme-2:last-child .calc-body-key:first-child > * { /* Modifies RESET button*/
+  background-color: var(--key-special-bg-2);
+  box-shadow: 0 5px var(--key-special-shadow-2);
+  color: var(--special-operations-2);
+  font-size: 25px;
+}
+
+.calc-body-row.theme-3:last-child .calc-body-key:first-child > * { /* Modifies RESET button*/
+  background-color: var(--key-special-bg-3);
+  box-shadow: 0 5px var(--key-special-shadow-3);
+  color: var(--special-operations-3);
+  font-size: 25px;
+}
+
+.calc-body-row.theme-1:last-child .calc-body-key:last-child > * { /* Modifies equal button */
   background-color: var(--toggle-key-bg-1);
   box-shadow: 0 5px var(--toggle-key-shadow-1);
   color: var(--special-operations-1);
+  font-size: 25px;
+}
+
+.calc-body-row.theme-2:last-child .calc-body-key:last-child > * { /* Modifies equal button */
+  background-color: var(--toggle-key-bg-2);
+  box-shadow: 0 5px var(--toggle-key-shadow-2);
+  color: var(--special-operations-2);
+  font-size: 25px;
+}
+
+.calc-body-row.theme-3:last-child .calc-body-key:last-child > * { /* Modifies equal button */
+  background-color: var(--toggle-key-bg-3);
+  box-shadow: 0 5px var(--toggle-key-shadow-3);
+  color: var(--equal);
   font-size: 25px;
 }
 

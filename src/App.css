@@ -1,14 +1,39 @@
 .App {
-  background-color: var(--main-bg-1);
-  color: var(--special-operations-1);
   display: grid;
   height: 100%;
   place-items: center;
   width: 100%;
 }
 
+.App.theme-1 {
+  background-color: var(--main-bg-1);
+  color: var(--special-operations-1);
+}
+
+.App.theme-2 {
+  background-color: var(--main-bg-2);
+  color: var(--text-number-2);
+}
+
+.App.theme-3 {
+  background-color: var(--main-bg-3);
+  color: var(--text-number-3);
+}
+
 .App h1 {
   margin: 0;
+}
+
+.App.theme-1 h1 {
+  color: var(--special-operations-1);
+}
+
+.App.theme-2 h1 {
+  color: var(--text-number-2);
+}
+
+.App.theme-3 h1 {
+  color: var(--text-number-3);
 }
 
 .App ul, ul li {
@@ -17,8 +42,7 @@
   padding: 0;
 }
 
-main {
-  background-color: hsl(221, 26%, 26%);
+.main {
   border-radius: 10px;
   display: grid;
   gap: 30px;
@@ -26,15 +50,40 @@ main {
   padding: 20px;
 }
 
+.main.theme-1 {
+  background-color: hsl(221, 26%, 26%);
+}
+
+.main.theme-2 {
+  background-color: hsl(0, 0%, 85%);
+}
+
+.main.theme-3 {
+  background-color: hsl(267, 72%, 18%);
+}
+
 .screen {
-  background-color: var(--screen-bg-1);
   border: transparent;
   border-radius: 10px;
-  color: var(--special-operations-1);
   direction: rtl;
   height: 90px;
   margin-bottom: 20px;
   overflow: auto;
   padding-right: 20px;
   width: 100%;
+}
+
+.screen.theme-1 {
+  background-color: var(--screen-bg-1);
+  color: var(--special-operations-1);
+}
+
+.screen.theme-2 {
+  background-color: var(--screen-bg-2);
+  color: var(--text-number-2);
+}
+
+.screen.theme-3 {
+  background-color: var(--screen-bg-3);
+  color: var(--text-number-3);
 }

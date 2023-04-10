@@ -51,18 +51,29 @@
 
 /* Create a custom radio button */
 .checkmark {
+  height: 25px;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 25px;
   width: 25px;
+}
+
+.checkmark.theme-1 {
   background-color: var(--toggle-keypad-bg-1);
 }
 
-/* On mouse-over, add a grey background color */
+.checkmark.theme-2 {
+  background-color: var(--toggle-keypad-bg-2);
+}
+
+.checkmark.theme-3 {
+  background-color: var(--toggle-keypad-bg-3);
+}
+
+/* On mouse-over, add a grey background color
 .container:hover input ~ .checkmark {
   background-color: var(--toggle-keypad-bg-1);
-}
+}*/
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
@@ -80,8 +91,19 @@
 .container .checkmark:after {
   top: 3px;
   left: 3px;
-  background: var(--toggle-key-bg-1);
 	border-radius: 50%;
   height: 19px;
   width: 19px;
+}
+
+.container.theme-1 .checkmark:after {
+  background: var(--toggle-key-bg-1);
+}
+
+.container.theme-2 .checkmark:after {
+  background: var(--toggle-key-bg-2);
+}
+
+.container.theme-3 .checkmark:after {
+  background: var(--toggle-key-bg-3);
 }

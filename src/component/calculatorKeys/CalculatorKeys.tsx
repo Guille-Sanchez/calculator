@@ -2,6 +2,8 @@ import { useRef, useState } from 'react'
 import { calculatorKeys, mathOperations, specialKeys } from '../../constants'
 import { calculate } from '../../logic/calculate'
 import './styles.css'
+import { useSelector } from 'react-redux'
+import { type RootState } from '../../store/store'
 
 interface Props {
   equation: string
@@ -16,6 +18,7 @@ export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element =>
   const [firstValue, setFirstValue] = useState<string>('')
   const operation = useRef('')
   const flag = useRef(false)
+  const theme = useSelector((state: RootState) => state.theme.value)
 
   const handleOnCLick = ({ e }: HandleProps): void => {
     e.preventDefault()
@@ -82,16 +85,16 @@ export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element =>
   }
 
   return (
-    <ul className='calc-body'>
+    <ul className={`calc-body theme-${theme}`}>
       {
         calculatorKeys.map((row, index) => {
           return (
-            <li className='calc-body-row' key={`row-${index}`} aria-label='calculator-row'>
+            <li className={`calc-body-row theme-${theme}`} key={`row-${index}`} aria-label='calculator-row'>
               <ul >
                 {
                   row.map((calcKey) => {
                     return (
-                      <li key={calcKey} aria-label='calculator-keys' className='calc-body-key'>
+                      <li key={calcKey} aria-label='calculator-keys' className={`calc-body-key theme-${theme}`}>
                         <button onClick={(e) => {
                           handleOnCLick({ e })
                         }}>
