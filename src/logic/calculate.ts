@@ -2,25 +2,26 @@ import * as math from 'mathjs'
 
 interface Props {
   firstValue: string
-  equation: string
-  operation: React.MutableRefObject<string>
+  secondValue: string
+  operation: string
 }
 
-export const calculate = ({ firstValue, equation, operation }: Props): string => {
+export const calculate = ({ firstValue, secondValue, operation }: Props): string => {
+  console.log(firstValue, secondValue, operation)
   let result = ''
   try {
-    switch (operation.current) {
+    switch (operation) {
       case '+':
-        result = math.add(math.bignumber(firstValue), math.bignumber(Number(equation))).toString()
+        result = math.add(math.bignumber(firstValue), math.bignumber(Number(secondValue))).toString()
         break
       case '-':
-        result = math.subtract(math.bignumber(firstValue), math.bignumber(Number(equation))).toString()
+        result = math.subtract(math.bignumber(firstValue), math.bignumber(Number(secondValue))).toString()
         break
       case '*':
-        result = Number(math.multiply(math.bignumber(firstValue), math.bignumber(Number(equation)))).toString()
+        result = Number(math.multiply(math.bignumber(firstValue), math.bignumber(Number(secondValue)))).toString()
         break
       case '/':
-        result = Number(math.divide(math.bignumber(firstValue), math.bignumber(Number(equation)))).toString()
+        result = Number(math.divide(math.bignumber(firstValue), math.bignumber(Number(secondValue)))).toString()
         break
       default:
         return ('SYNTAX ERROR')

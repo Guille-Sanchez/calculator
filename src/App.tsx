@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import './App.css'
 import { CalculatorKeys } from './component/calculatorKeys/CalculatorKeys'
 import { ToggleButton } from './component/toggleButton/ToggleButton'
 import { useSelector } from 'react-redux'
 import { type RootState } from './store/store'
+import { useState } from 'react'
 
 function App (): JSX.Element {
   const [equation, setEquation] = useState<string>('')

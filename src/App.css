@@ -65,11 +65,11 @@
 .screen {
   border: transparent;
   border-radius: 10px;
-  direction: rtl;
   height: 90px;
   margin-bottom: 20px;
   overflow: auto;
   padding-right: 20px;
+  text-align: right;
   width: 100%;
 }
 

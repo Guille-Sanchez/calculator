@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react'
-import { calculatorKeys, mathOperations, specialKeys } from '../../constants'
+import { useState } from 'react'
+import { calculatorKeys, mathOperations } from '../../constants'
 import { calculate } from '../../logic/calculate'
 import './styles.css'
 import { useSelector } from 'react-redux'
@@ -15,9 +15,9 @@ interface HandleProps {
 }
 
 export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element => {
-  const [firstValue, setFirstValue] = useState<string>('')
-  const operation = useRef('')
-  const flag = useRef(false)
+  const [firstValue, setFirstValue] = useState('')
+  const [operation, setOperation] = useState('')
+  const [secondValue, setSecondValue] = useState('')
   const theme = useSelector((state: RootState) => state.theme.value)
 
   const handleOnCLick = ({ e }: HandleProps): void => {
@@ -26,59 +26,53 @@ export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element =>
 
     switch (buttonValue) {
       case '=':
-        const result = calculate({ firstValue, equation, operation })
+        const result = calculate({ firstValue, secondValue, operation })
         setEquation(() => result)
-        setFirstValue(() => '')
-        operation.current = ''
-        break
+        setFirstValue(() => result)
+        setSecondValue(() => '')
+        setOperation(() => '')
+        return
 
       case 'RESET':
         setEquation(() => '')
         setFirstValue(() => '')
-        operation.current = ''
-        break
+        setOperation(() => '')
+        return
 
       case 'DEL':
-        if (equation.length > 0 && operation.current === '') {
+        if (operation !== '' && secondValue === '') { // Deletes math operand
+          setOperation(() => '')
+          setEquation(() => '')
+        } else { // Deletes any number
           const equationArray = equation.split('')
           equationArray.pop()
           setEquation(() => equationArray.join('') ?? '')
-        } else if (operation.current !== '') {
-          operation.current = ''
-          setEquation(() => '')
-        } else {
-          setEquation(() => '')
+          setSecondValue(equationArray.join('') ?? '')
         }
-        break
-
-      default:
-        break
+        return
     }
 
-    if (specialKeys.includes(buttonValue)) {
+    if (equation === 'SYNTAX ERROR' || equation === 'Infinity') { // Resets values if user clicks a button
+      setFirstValue(() => buttonValue)
+      setEquation(() => buttonValue)
       return
     }
 
     if (
-      ((operation.current === '' && !mathOperations.includes(buttonValue)) ||
-      ((buttonValue === '-' && equation.split('').length === 0) && firstValue === '')) &&
-      equation !== 'SYNTAX ERROR'
+      (firstValue === '' && buttonValue === '-') || // Allows to write negative numbers
+        (!mathOperations.includes(buttonValue) && operation === '')
     ) {
+      setFirstValue((prev) => prev + buttonValue)
       setEquation((prev) => prev + buttonValue)
-    } else if (mathOperations.includes(buttonValue) && operation.current === '') {
-      setEquation(() => buttonValue)
-      if (firstValue === '') {
-        setFirstValue(() => equation)
-      }
-      operation.current = buttonValue
-      flag.current = true
-    } else if (equation === 'SYNTAX ERROR') {
+    } else if (mathOperations.includes(buttonValue) && operation === '') {
+      setOperation(() => buttonValue)
       setEquation(() => buttonValue)
     } else {
-      if (flag.current) {
+      if (secondValue === '') { // Removes math operation before right-hand number
+        setSecondValue(() => buttonValue)
         setEquation(() => buttonValue)
-        flag.current = false
       } else {
+        setSecondValue((prev) => prev + buttonValue)
         setEquation((prev) => prev + buttonValue)
       }
     }

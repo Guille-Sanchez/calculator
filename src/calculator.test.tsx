@@ -46,6 +46,7 @@ describe('Calculator', () => {
 })
 
 describe('Basic operations', () => {
+  afterEach(cleanup)
   it('Should render a positive number', () => {
     render(<Provider store={store}>
       <App/>
@@ -238,8 +239,8 @@ describe('Especial keys operation', () => {
     const five = screen.getByText('5')
     fireEvent.click(five)
 
-    const plus = screen.getByText('*')
-    fireEvent.click(plus)
+    const multiply = screen.getByText('*')
+    fireEvent.click(multiply)
 
     const del = screen.getByText('DEL')
     fireEvent.click(del)
@@ -253,6 +254,34 @@ describe('Especial keys operation', () => {
 
     const input: HTMLInputElement = screen.getByRole('textbox')
     expect(input.value).toBe('-80')
+  })
+
+  it('Should delete second-hand number', () => {
+    render(<Provider store={store}>
+      <App/>
+    </Provider>)
+
+    const seven = screen.getByText('7')
+    fireEvent.click(seven)
+
+    const five = screen.getByText('5')
+    fireEvent.click(five)
+
+    const plus = screen.getByText('+')
+    fireEvent.click(plus)
+
+    fireEvent.click(five)
+
+    const del = screen.getByText('DEL')
+    fireEvent.click(del)
+
+    fireEvent.click(seven)
+
+    const equal = screen.getByText('=')
+    fireEvent.click(equal)
+
+    const input: HTMLInputElement = screen.getByRole('textbox')
+    expect(input.value).toBe('82')
   })
 
   it('Should render an error if input is wrong', () => {
@@ -436,8 +465,11 @@ describe('New Equation', () => {
     const seven = screen.getByText('7')
     fireEvent.click(seven)
 
-    const plus = screen.getByText('+')
-    fireEvent.click(plus)
+    const divide = screen.getByText('/')
+    fireEvent.click(divide)
+
+    const multiply = screen.getByText('*')
+    fireEvent.click(multiply)
 
     const equal = screen.getByText('=')
     fireEvent.click(equal)
