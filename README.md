@@ -27,8 +27,6 @@ Users should be able to:
 - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 
 ### Screenshot
-
-### Screenshot
 <div>
   <div style='display: flex; justify-content: center; width: 100%; gap: 20px;'>
     <img src='./screenshots/mobile1.png' style='width: 375px; height: auto;'/>
