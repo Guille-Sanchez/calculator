@@ -22,7 +22,7 @@ export const CalculatorKeys = ({ equation, setEquation }: Props): JSX.Element =>
 
   const handleOnCLick = ({ e }: HandleProps): void => {
     e.preventDefault()
-    const buttonValue: string = e.currentTarget.innerHTML
+    const buttonValue: string = e.currentTarget.innerHTML === '.' ? ',' : e.currentTarget.innerHTML
 
     switch (buttonValue) {
       case '=':
