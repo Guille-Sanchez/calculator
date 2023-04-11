@@ -1,18 +1,30 @@
-// import { useState } from 'react'
 import './styles.css'
 import { type RootState } from '../../store/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { update } from '../../themes/themesSlice'
+import { useEffect } from 'react'
 
 export function ToggleButton (): JSX.Element {
   const theme = useSelector((state: RootState) => state.theme.value)
   const dispatch = useDispatch()
-  // const [selectedOption, setSelectedOption] = useState('1')
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    // setSelectedOption(event.target.value)
     dispatch(update(event.target.value))
+    window.localStorage.setItem('theme', event.target.value)
   }
+
+  useEffect(() => {
+    let subscribed = true
+
+    if (subscribed) {
+      const theme = window.localStorage.getItem('theme') ?? '1'
+      dispatch(update(theme))
+    }
+
+    return () => {
+      subscribed = false
+    }
+  }, [])
 
   const themes = ['1', '2', '3'] as const
 
@@ -29,7 +41,6 @@ export function ToggleButton (): JSX.Element {
               <input
                 type="radio"
                 value={item}
-                // checked={selectedOption === '1'}
                 checked={theme === item}
                 onChange={handleOptionChange}
               ></input>
